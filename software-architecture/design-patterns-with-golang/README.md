@@ -1,6 +1,10 @@
 # Design Patterns
 > 老生常谈的话题，咱在参加工作之前就熟悉的话题。  
-借着 golang，再回顾以下。
+> 借着 golang，再回顾以下。  
+
+请记住：  
+**Go isn't exactly object oriented language and promotes simplicity.**  
+所以，也不能生搬硬套 那些设计模式的概念，首先要理解这些模式要解决的问题，再想想如何以go的方式来解决这些问题，我想，这个才是重点。
 
 ## Design principles
 >关键人物：Robert C Martin (Uncle Bob)  
@@ -31,7 +35,7 @@
 
  ## 设计模式
  - **Creational**
-    - Factory method
+    - [Factory method](factory-method.md)
     - Builder
     - Abstract factory
     - Singleton
