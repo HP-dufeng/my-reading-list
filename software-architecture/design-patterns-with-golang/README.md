@@ -36,7 +36,7 @@
  ## 设计模式
  - **Creational**
     - [Factory method](factory-method.md)
-    - Builder
+    - [Builder](builder.md)
     - Abstract factory
     - Singleton
 - **Structural**
