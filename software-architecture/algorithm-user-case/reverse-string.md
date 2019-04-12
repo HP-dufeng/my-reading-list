@@ -32,6 +32,4 @@ func ReverseBySlice(str string) string {
 ```
 
 其实，我还有一个想法，就是函数式里面经常看到的 reduce 方法, go package里面没有对应的方法，我准备用 [ReactiveX](http://reactivex.io/) 这个库，之前使用过，js，c# 的语言实现，这次试试 go 的实现，概念都是一样的。其实 函数式，流式处理是未来的一个重要的方向。  
-稍后贴代码  
 
-对这几种方法，稍后做个 benchmark test 看看性能如何
