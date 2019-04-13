@@ -19,7 +19,7 @@
 - c++ primer
 
 #### 源代码阅读类：
-> kubernetes，已经给公司部署过 **openshift origin** 平台，也在上面做了一些devops自动发布和运维上的东西。接下来看看源码，做一些这个平台上的扩展开发。  
+> kubernetes，已经给公司部署过 **openshift origin** 平台，也在上面做了一些devops自动发布和运维上的东西。有空的时候看看源码。  
 - 阅读 kubernetes 源代码
 
 #### 提升思想深度类：
