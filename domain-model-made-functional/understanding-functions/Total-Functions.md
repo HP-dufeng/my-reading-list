@@ -52,7 +52,7 @@ let twelveDividedBy (NonZeroInteger n) =
 
 这个要比前一个版本好一些。无需阅读文档或查看源代码，从签名信息就可以看到对输入参数的需求是什么。这个 function 没有说谎。所有信息都是显示表达的。
 
-**另一种方式是 *extend the output*** ， 可以接受 0 作为输入值，但是将输出扩展为：可以在 有效的整型值 和 未定义的值 之间进行选择的 type 。我们将使用Option type 来表示这种 “something” 和 “nothing” 之间的选择。实现如下：
+**另一种方式是 *extend the output*** ， 可以接受 0 作为输入值，但是将输出扩展为：可以在 有效的整型值 和 未定义的值 之间进行选择的 type 。我们将使用 Option type 来表示这种 “something” 和 “nothing” 之间的选择。实现如下：
 ```
 /// Uses extended output
 let twelveDividedBy n =
