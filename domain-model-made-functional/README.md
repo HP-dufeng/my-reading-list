@@ -5,7 +5,7 @@
 
   
 
-* Part III -- Implementing the Model
+* Part III，Implementing the Model
 
   08. [Understanding Functions](./understanding-functions/README.md) 
   
