@@ -29,7 +29,7 @@ let twelveDividedBy n =
 但是，请再看看 function 的签名：
 ```twelveDividedBy : int -> int```
 
-这个签名表达的意思是：传入一个 int 值，并且返回一个 int 值。但这是骗人的，签名说谎了！你并不总是得到一个 int 值，有时会得到一个 exception。签名中并没有表达出 有可能会返回一个 exception。
+这个签名表达的意思是：传入一个 int 值，并且返回一个 int 值。但这是骗人的，签名说谎了！你并不总是得到一个 int 值，有时会得到一个 exception。签名中并没有表达出 有可能会返回一个 exception 这种情况。
 
 如果类型签名不会说谎那就太好了。在这种情况下，function 的每个输入都有一个有效的输出，没有例外。来看看怎么做。
 
