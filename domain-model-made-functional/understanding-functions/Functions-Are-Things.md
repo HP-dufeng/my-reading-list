@@ -24,7 +24,7 @@ let square = (fun x -> x * x) // square : x:int -> int
 let addThree = plus3          // addThree : (int -> int)
 ```
 
-前两个定义之前已经见过了。在第三个定义中，let 关键字用于为匿名函数(也称为 lambda 表达式) 分配名称(square)。在第四个定义中，let 关键字用于为前面定义的函数(plus3)分配名称(addThree)。这些函数都是 int -> int 类型的函数，它接受一个 int 作为输入并输出一个新的 int 。  
+前两个定义之前已经见过了。在第三个定义中，let 关键字用于为匿名函数(也称为 lambda 表达式) 分配名称(square)。在第四个定义中，let 关键字用于为前面定义的函数(plus3)分配名称(addThree)。这些函数的类型是 int -> int ，它接受一个 int 作为输入并输出一个新的 int 。  
 
 因为 functions are things， 所以可以将他们放入 list 中：
 ```
