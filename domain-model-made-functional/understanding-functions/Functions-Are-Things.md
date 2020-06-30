@@ -173,7 +173,7 @@ let sayHello = sayGreeting "Hello"
 // sayGoodbye: string -> unit
 let sayGoodbye = sayGreeting "Goodbye"
 ```
-这些 function 现在还需要一个参数，即 name 。下面我们提供 name 这个参数，我们就得到了最终的输出：
+sayHello 和 sayGoodbye 现在还需要一个参数，即 name 。下面我们提供 name 这个参数，我们就得到了最终的输出：
 ```
 sayHello "Alex"
 // output: "Hello Alex"
