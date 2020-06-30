@@ -2,7 +2,7 @@
 
 数学函数将每个可能的输入与输出连接起来。在函数式编程中，我们尝试以同样的方式设计函数，以便每个输入都有一个对应的输出。这类函数被称为 **total functions** (全函数)。
 
-何苦呢? 这是因为我们希望尽可能显示的表达事物( make things *explicit* )  ， 避免出现 没有在 类型签名中记录的 隐藏效果和行为。类型签名就表达了 function 的效果和行为。
+何苦呢? 这是因为我们希望尽可能显示的表达事物( make things *explicit* )  ， 避免出现这样的 hidden effects 和 behavior ——就是这些 hidden effects 和 behavior 并没有在 type 签名中显示的表达出来。
 
 用一个例子来解释这个概念，twelveDividedBy 这个 function 返回 12 除以 输入参数 n  的结果，看看下面的伪代码：
 ```
