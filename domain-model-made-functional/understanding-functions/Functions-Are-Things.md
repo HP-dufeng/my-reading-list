@@ -32,9 +32,9 @@ let addThree = plus3          // addThree : (int -> int)
 let listOfFunctions = [addThree; times2; square]
 ```
 > **! 提示：**  
-> 在f#中，list 使用分号(不是逗号!)作为元素分隔符。
+> 在 f# 中，list 使用分号(不是逗号!)作为元素分隔符。
 
-我们现在可以遍历列表并依次对每个 function 求值：  
+我们现在可以遍历 list 并依次对每个 function 求值：  
 ```
 for fn in listOfFunctions do
     let result = fn 100 // call the function
@@ -57,7 +57,8 @@ let myString = "hello"
 // square : x:int -> int
 let square x = x * x
 ```
-在第二个代码片段中，我将名称 square 分配给一个匿名函数。这里 let 定义的是一个 sample value，还是一个 function ？
+在第二个代码片段中，我将名称 square 分配给一个 anonymous
+function 。这里 let 定义的是一个 sample value，还是一个 function ？
 ```
 // square : x:int -> int
 let square = (fun x -> x * x)
