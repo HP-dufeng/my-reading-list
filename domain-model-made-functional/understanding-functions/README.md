@@ -10,5 +10,6 @@
 
 本章包含以下小节：
 
-[Functions, Functions, Everywhere](./Functions-Functions-Everywhere.md)
+[Functions, Functions, Everywhere](./Functions-Functions-Everywhere.md)  
 
+[Functions Are Things](./Functions-Are-Things.md)
