@@ -8,3 +8,7 @@
 
 我们不会讨论听起来可怕的概念，比如 monads，functors，等等——至少现在不。我们将在稍后，遇到这些概念的时候再做解释。
 
+本章包含以下小节：
+
+[Functions, Functions, Everywhere](./Functions-Functions-Everywhere.md)
+

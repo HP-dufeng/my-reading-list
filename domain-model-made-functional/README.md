@@ -7,5 +7,5 @@
 
 * Part III -- Implementing the Model
 
-  8. [Understanding Functions](./understanding-functions/README.md) 
+  08. [Understanding Functions](./understanding-functions/README.md) 
   
