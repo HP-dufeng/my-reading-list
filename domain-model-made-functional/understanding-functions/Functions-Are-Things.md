@@ -157,7 +157,7 @@ F# 中，不需要显示的这样做——每个 function 都是 curried functio
 
 ### Partial Application
 
-如果每个 function 都是 柯理化过的(curried)，这意味着您可以接受任何多参数 function 并只传入一个参数，您将得到一个包含该参数的新 function，但仍然需要所有其他参数。
+如果每个 function 都是 柯理化过的(curried)，这意味着您可以接受任何多参数 function 并只传入一个参数，这样将得到一个包含该参数的新 function，但是稍后仍然需要所有其他的参数，以获得执行后最终的结果。
 
 例如，下面的 function： sayGreeting 拥有两个参数：
 ```
