@@ -13,3 +13,5 @@
 [Functions, Functions, Everywhere](./Functions-Functions-Everywhere.md)  
 
 [Functions Are Things](./Functions-Are-Things.md)
+
+[Total Functions](./Total-Functions.md)
