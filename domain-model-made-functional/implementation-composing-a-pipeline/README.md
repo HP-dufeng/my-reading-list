@@ -14,7 +14,7 @@
 
 我们希望将这些转换成代码的同时，保留原始的需求，而不与技术实现细节混杂在一起。
 
-看看下面的代码，这个例子使用了第8章中的 Composition 这一节，所介绍的 pipeline 的技术，将每一个步骤中的 function 连接起来：
+看看下面的代码，这个例子使用了第8章 Composition 这一节中，所介绍的 pipeline 的技术，将每一个步骤中的 function 连接起来：
 ```
 let placeOrder unvalidatedOrder =
     unvalidatedOrder
@@ -36,6 +36,6 @@ function 不能组合的原因有两个：
 在这一章，我们将处理第一个问题，处理作为依赖项的输入，并且我们将看到如何使用 functional 的方式实现 “dependency injection” 。下一章再讨论如何处理具有 effect 参数的 function 。
 
 > **！我的提示：**  
-> effect : 在 functional programming 的世界里，通常是指，将某个 plan data（原始类型的值，比如： int，string ...）包装一下，将其提升为具有一定 effect 的值。这里不将 *effect* 翻译为 *作用*，因为 *作用* 这个词不能代表上面的含义。*effect* 在我看来是一个术语。
+> **effect** : 在 functional programming 的世界里，通常是指，将某个 plan data（原始类型的值，比如： int，string ...）包装一下，将其提升为具有一定 effect 的值。这里不将 *effect* 翻译为 *作用*，因为 *作用* 这个词不能代表上面的含义。*effect* 在我看来是一个术语。
 
 编写实际的代码时，第一步先忽略这些具有 *effect* 的 wrapper type，比如，Resut 和 Async ...， 等等，而只是实现所有的步骤。我们将关注点放在如何做最基础的组合上。
