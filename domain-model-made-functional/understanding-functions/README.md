@@ -17,3 +17,5 @@
 [Total Functions](./Total-Functions.md)
 
 [Composition](./Composition.md)
+
+[Wrapping Up](./Wrapping-Up.md)
