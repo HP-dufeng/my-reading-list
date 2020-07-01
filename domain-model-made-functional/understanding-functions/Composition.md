@@ -4,8 +4,10 @@
 
 例如，有两个 function 。第一个 输入是 apple，输出 banana 。第二个输入是 banana ，输出 cherries 。第一个 function 的输出和第二个 function 的输入类型是相同的，因此将这两个 function 组合起来：  
 ![image](./../images/composition.png)  
+
 组合之后，得到一个新的 function ：   
 ![image](./../images/new-composition-function.png)  
+
 这种组合的一个重要特征是 *information-hiding* 。 你不知道这个 function 是由较小的 function 组合成的，也不知道这些较小的 function 是干什么用的。香蕉去哪了? who care 。使用这个新 function 的用户不需要知道曾经有过香蕉。我们成功地向最终用户隐藏了这些信息， composed function ， 封装细节。
 
 ### Composition of Functions in F#
@@ -47,12 +49,16 @@ isEvenThenPrint 2               // result is "value is true"
 可以使用这种组合的方式构建完整的应用程序。  
 例如，我们可以从应用程序底层的一个基本 function 开始 ：  
 ![image](./../images/low-level-operation.png)  
+
 然后将其组合起来，以创建一个 service function ，  
 ![image](./../images/low-level-operation-composition.png)  
+
 然后将这些 service function 粘合在一起，以构建一个处理完整 workflow 的 function 。  
 ![image](./../images/service-composition.png)  
+
 最后，通过并行的组合这些 workflow 来构建一个应用程序，创建一个 controller/dispatcher ，根据输入选择要调用的 workflow 。  
 ![image](./../images/workflow-composition.png)  
+
 这就是构建函数式应用程序的方法。每一层所包含的 function 都有一个输入和输出。这就是使用 function 的方式。
 
 第9章，Implementation: Composing a Pipeline , 我们会将其应用到实践中——通过组合一系列小的 function，为 order-placing workflow 实现一个 pipeline 。
