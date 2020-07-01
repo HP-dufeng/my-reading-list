@@ -8,4 +8,6 @@
 * Part 3，Implementing the Model
 
   * [8. Understanding Functions](./understanding-functions/README.md) 
+
+  * [9. Implementation: Composing a Pipeline](./implementation-composing-a-pipeline/README.md) 
   
