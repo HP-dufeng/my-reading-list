@@ -165,7 +165,7 @@ F# 中，不需要显示的这样做——每个 function 都是 curried functio
 let sayGreeting greeting name =
     printfn "%s %s" greeting name
 ```
-可以先只传入一个参数，以此得到一个新的 带有 greeting 参数信息的  function：
+可以先只传入第一个参数，以此得到一个新的 带有 greeting 参数信息的  function：
 ```
 // sayHello: string -> unit
 let sayHello = sayGreeting "Hello"

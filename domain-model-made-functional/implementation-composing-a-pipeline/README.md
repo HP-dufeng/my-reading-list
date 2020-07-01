@@ -39,3 +39,24 @@ function 不能组合的原因有两个：
 > **effect** : 在 functional programming 的世界里，通常是指，将某个 plan data（原始类型的值，比如： int，string ...）包装一下，将其提升为具有一定 effect 的值。这里不将 *effect* 翻译为 *作用*，因为 *作用* 这个词不能代表上面的含义。*effect* 在我看来是一个术语。
 
 编写实际的代码时，第一步先忽略这些具有 *effect* 的 wrapper type，比如，Resut 和 Async ...， 等等，而只是实现所有的步骤。我们将关注点放在如何做最基础的组合上。
+
+本章包含以下小节：
+
+[Working With Simple Types](./Working-With-Simple-Types.md)  
+
+[Using Function Types to Guide the Implementation](./Using-Function-Types-to-Guide-the-Implementation.md)  
+
+[Implementing the Validation Step](./Implementing-the-Validation-Step.md)  
+
+[Implementing the Rest of the Steps](./Implementing-the-Rest-of-the-Steps.md)  
+
+[Composing the Pipeline Steps Together](./Composing-the-Pipeline-Steps-Together.md)  
+
+[Injecting Dependencies](./Injecting-Dependencies.md)  
+
+[Testing Dependencies](./Testing-Dependencies.md)  
+
+[The Assembled Pipeline](./The-Assembled-Pipeline.md)  
+
+[Wrapping Up](./Wrapping-Up.md)  
+
