@@ -15,3 +15,5 @@
 [Functions Are Things](./Functions-Are-Things.md)
 
 [Total Functions](./Total-Functions.md)
+
+[Composition](./Composition.md)
