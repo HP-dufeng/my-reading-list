@@ -211,7 +211,7 @@ let toProductCode (checkProductCodeExists:CheckProductCodeExists) productCode =
 ### Creating Function Adapters
 
 某个 function 返回 bool ，但是我们真的希望它返回 ProduceCode ，与其改变设计规范，不如创建一个 "adapter" function ，它以原始的 function 作为输入，产生一个新的 function ，这个新的 function 就可以返回你需要的类型了。  
-![images](./../image/adapter-function.png)  
+![image](./../images/adapter-function.png)  
 
 实现是显而易见的，定义一个 function ，参数是 bool-returning
 predicate (checkProductCodeExists) 和 需要被校验的值 (productCode) ：
