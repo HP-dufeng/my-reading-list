@@ -11,13 +11,13 @@ let placeOrder : PlaceOrderWorkflow =
         |> createEvents
 ```
 
-但是有一个问题, validateOrder 除了 UnvalidatedOrder 之外还有两个额外的输入参数。目前，没有简单的方法将 placeOrder workflow 的输入连接到 validateOrder function，因为输入和输出不匹配。
+但是有一个问题, validateOrder 除了 UnvalidatedOrder 之外还有两个额外的输入参数。目前，没有简单的方法将 placeOrder workflow 的输入连接到 validateOrder function，因为输入和输出不匹配。  
 ![image](./../images/workflow-input-validateOrder.png)  
 
-类似的，priceOrder 有两个输入参数，因此它不能连接到 validateOrder 的输出上：
+类似的，priceOrder 有两个输入参数，因此它不能连接到 validateOrder 的输出上：  
 ![image](./../images/validateOrder-priceOrder.png)  
 
-就像在第7章 Composing the Workflow From the Steps 这一节中提到的，组合这些输入和输出类型不匹配的 function 是 functional programming 中的主要挑战之一，已经有了很多技术来解决这个问题。大多数解决方案都使用可怕的 “monad” ，目前我们使用 *partial application* 这种简单的方式。我们要做的是，仅应用 validateOrder function 的三个参数中的两个 ( two dependencies )，从而得到一个只有一个输入参数的新的 function 。
+就像在第7章 Composing the Workflow From the Steps 这一节中提到的，组合这些输入和输出类型不匹配的 function 是 functional programming 中的主要挑战之一，已经有了很多技术来解决这个问题。大多数解决方案都使用可怕的 “monad” ，目前我们使用 *partial application* 这种简单的方式。我们要做的是，仅应用 validateOrder function 的三个参数中的两个 ( two dependencies )，从而得到一个只有一个输入参数的新的 function 。   
 ![image](./../images/validateOrder-partial-application.png)  
 
 代码是这样的：
@@ -40,7 +40,7 @@ let validateOrder' =
     validateOrder checkProductCodeExists checkAddressExists
 ```
 
-使用同样的方式来处理 priceOrder 和 acknowledgeOrder 的依赖项，因此它们也变成了只有一个输入参数的 function 。
+使用同样的方式来处理 priceOrder 和 acknowledgeOrder 的依赖项，因此它们也变成了只有一个输入参数的 function 。  
 ![image](./../images/priceOrder-partial-application.png)  
 
 The main workflow function, placeOrder ，现在看起来像这样：
