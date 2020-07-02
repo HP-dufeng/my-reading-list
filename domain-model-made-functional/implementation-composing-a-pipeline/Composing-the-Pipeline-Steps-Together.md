@@ -34,7 +34,7 @@ let validateOrder =
     validateOrder checkProductCodeExists checkAddressExists
 ```
 
-或者，您可以在名称加一个标记 ( validateOrder' ) 来显示它是原始 function 的变体，如下所示:
+或者，您可以在名称加一个标记 ( validateOrder' ) 来表示它只是原始 function 的变体，如下所示:
 ```
 let validateOrder' =
     validateOrder checkProductCodeExists checkAddressExists
