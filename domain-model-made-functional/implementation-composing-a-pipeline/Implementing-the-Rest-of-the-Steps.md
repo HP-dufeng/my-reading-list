@@ -53,7 +53,7 @@ let priceOrder : PriceOrder =
 
 回到实现 priceOrder 的代码上来，这里引入了两个 helper function ： toPricedOrderLine 和 BillingAmount.sumPrices 。
 
-在 BillingAmount module 中已经添加了 BillingAmount.sumPrices function (以及 create 和 value )。illingAmount.sumPrices 简单的将 prices list 中的元素相加求和，然后将结果包装成 BillingAmount 。为什么需要定义一个 BillingAmount type？这是为了区别 Price type ，二者的校验规则也许会不一样。
+在 BillingAmount module 中已经添加了 BillingAmount.sumPrices function (以及 create 和 value )BillingAmount.sumPrices 简单的将 prices list 中的元素相加求和，然后将结果包装成 BillingAmount 。为什么需要定义一个 BillingAmount type？这是为了区别 Price type ，二者的校验规则也许会不一样。
 ```
 /// Sum a list of prices to make a billing amount
 /// Raise exception if total is out of bounds
