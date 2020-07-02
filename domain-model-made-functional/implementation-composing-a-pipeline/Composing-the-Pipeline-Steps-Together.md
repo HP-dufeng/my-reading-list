@@ -67,7 +67,7 @@ let placeOrder : PlaceOrderWorkflow =
 
 有时，即使这样做，function 也会不匹配。我们的例子中，acknowledgeOrder 的输出是 event ，而不是 priced order ，所以它不能匹配 createEvents 的输入类型。
 
-我们可以为此编写一个小小的 adapter ，或者可以简单地切换到一个更命令式的代码风格，其中每个步骤的输出显式地分配一个值，就像这样：
+我们可以为此编写一个小小的 adapter ，或者可以简单地切换到一个更命令式的代码风格，为其中的每个步骤的输出显式地分配一个值，就像这样：
 ```
 let placeOrder : PlaceOrderWorkflow =
     // return the workflow function
