@@ -17,9 +17,9 @@ let toAddress checkAddressExists unvalidatedAddress =
 let toProductCode checkProductCodeExists productCode =
     ...
 ```
-它们都有一个 explicit parameter 用于它们的依赖项。
+它们都有一个 explicit parameter 作为它们的依赖项。
 
-现在作为创建 order line 的一部分，我们需要一个 product code ，这表示toValidatedOrderLine 需要调用 toProductCode ，也就意味着 toValidatedOrderLine 也需要 checkProductCodeExists 这个参数：
+现在作为创建 order line 的一部分，我们需要一个 product code ，这表示 toValidatedOrderLine 需要调用 toProductCode ，也就意味着 toValidatedOrderLine 也需要 checkProductCodeExists 这个参数：
 ```
 // helper function
 let toValidatedOrderLine checkProductExists unvalidatedOrderLine =
@@ -32,7 +32,7 @@ let toValidatedOrderLine checkProductExists unvalidatedOrderLine =
         |> toProductCode checkProductExists //use service
     ...
 ```
-向上移动一层，validateOrder function 需要调用 toAddress 和 toValidatedOrderLine，因此它又需要将这两个 function 的它们本身的依赖项， 作为额外的参数传递进来：
+向上移动一层，validateOrder function 需要调用 toAddress 和 toValidatedOrderLine，因此它又需要将这两个 function 它们本身的依赖项， 作为额外的参数传递进来：
 ```
 let validateOrder : ValidateOrder =
     fun checkProductExists      // dependency for toValidatedOrderLine
@@ -51,7 +51,7 @@ let validateOrder : ValidateOrder =
             |> List.map (toValidatedOrderLine checkProductExists)
         ...
 ```
-依此类推，直到到达 top level function , 在这里将设置所有的依赖项。在 object-oriented design 中，这个 top level function 通常称为 *Composition Root* ，所以在这里我们也使用这个术语。
+依此类推，直到到达 top level function ,所有的依赖项都将在此处设置。在 object-oriented design 中，这个 top level function 通常称为 *Composition Root* ，所以在这里我们也使用这个术语。
 
 是否应该把 placeOrder workflow function 作为 composition root ？不，因为通常设置 service 时都需要访问环境配置。更好的做法是 placeOrder 只提供它自己需要的 service 作为参数，像这样：
 ```
@@ -112,11 +112,11 @@ let app : WebPart =
 
 ### Too Many Dependencies?
 
-validateOrder 有两个依赖项。如果它需要 4，5，或者更多的参数呢？如果其他的步骤也有很多的依赖项，哦，依赖泛滥！出现这种情况，你会怎么做？
+validateOrder 有两个依赖项。如果它需要 4个，5个，或者更多的参数呢？如果其他的步骤也有很多的依赖项，哦，依赖泛滥！出现这种情况，你会怎么做？
 
 首先，可能是你的 function 做了太多的事情。是否能把它重构成更小的 function ？如果不能，则可以将这么多的依赖项封装到一个 struct 中，然后将这个 struct 作为参数传递。
 
-一种常见的情况是，child function 的依赖项的特别复杂。例如，checkAddressExists 需要调用一个 web service ，这个 web service 有两个参数 URI 和 credentials ：
+一种常见的情况是，child function 的依赖项特别复杂。例如，checkAddressExists 需要调用一个 web service ，这个 web service 有两个参数 URI 和 credentials ：
 ```
 let checkAddressExists endPoint credentials =
     ...
