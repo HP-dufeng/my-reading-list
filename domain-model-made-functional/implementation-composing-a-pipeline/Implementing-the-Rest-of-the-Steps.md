@@ -17,7 +17,7 @@ type PriceOrder =
         -> ValidatedOrder   // input
         -> PricedOrder      // output
 ```
-以下是对 PriceOrder 的实现。它简单地将每个 order line 转换为一个 PricedOrderLine ，并使用转换后的 PriceOrderLine 构建一个新的 PricedOrder ：
+以下是对 PriceOrder 的实现。它简单地将每个 order line 转换为一个 PricedOrderLine ，并使用转换后的 PricedOrderLine 构建一个新的 PricedOrder ：
 ```
 let priceOrder : PriceOrder =
     fun getProductPrice validatedOrder ->
