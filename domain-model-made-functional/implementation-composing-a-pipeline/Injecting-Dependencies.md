@@ -4,10 +4,10 @@
 
 这些作为 service 的 function ，通常被叫做依赖项，在设计中层级是相当深的，那么我们如何将这些依赖从顶层传递到需要它们的 function 呢?
 
-object-oriented programming 使用的技术是 dependency injection ，有很多的 IoC container 可以用。  
+object-oriented programming 使用的技术是 dependency injection ，并且有很多的 IoC container 可以用。  
 functional programming 不会这么做，因为这样会使依赖项变得 implicit 。相反，我们总是希望将依赖项作为 explicit parameter 传递，以确保依赖项是显而易见的。
 
-functional programming 领域有很多技术可以做这样的事情，比如，“Reader Monad” 和 “Free Monad” ，由于这是一本介绍性的书，我们将坚持使用最简单的方式，即将所有依赖项传递到 top level function ，然后将它们传递到 inner function ，inner function 再将它们向下传递到 inner function ，依此类推。
+functional programming 领域有很多种技术可以做这样的事情，比如，“Reader Monad” 和 “Free Monad” ，由于这是一本介绍性的书，我们将坚持使用最简单的方式，即将所有依赖项传递到 top level function ，然后再将它们传递到 inner function ，inner function 再将它们向下传递到 inner function ，依此类推。
 
 假设已经实现了之前定义的 helper function：
 ```
