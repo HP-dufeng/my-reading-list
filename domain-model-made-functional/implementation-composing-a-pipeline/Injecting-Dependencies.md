@@ -1,6 +1,6 @@
 ## Injecting Dependencies
 
-我们有许多 low-level helper function ，比如 toValidProductCode，它接受一个 被描述为 service 的 function 作为参数。
+我们有许多的 low-level helper function ，比如 toValidProductCode，它接受一个 被描述为 service 的 function 作为参数。
 
 这些作为 service 的 function ，通常被叫做依赖项，在设计中层级是相当深的，那么我们如何将这些依赖从顶层传递到需要它们的 function 呢?
 
@@ -19,7 +19,7 @@ let toProductCode checkProductCodeExists productCode =
 ```
 它们都有一个 explicit parameter 作为它们的依赖项。
 
-现在作为创建 order line 的一部分，我们需要一个 product code ，这表示 toValidatedOrderLine 需要调用 toProductCode ，也就意味着 toValidatedOrderLine 也需要 checkProductCodeExists 这个参数：
+为了创建 order line ，所以需要一个 product code ，这表示 toValidatedOrderLine 需要调用 toProductCode ，也就意味着 toValidatedOrderLine 也需要 checkProductCodeExists 这个参数：
 ```
 // helper function
 let toValidatedOrderLine checkProductExists unvalidatedOrderLine =
@@ -112,9 +112,9 @@ let app : WebPart =
 
 ### Too Many Dependencies?
 
-validateOrder 有两个依赖项。如果它需要 4个，5个，或者更多的参数呢？如果其他的步骤也有很多的依赖项，哦，依赖泛滥！出现这种情况，你会怎么做？
+validateOrder 有两个依赖项。如果它需要 4个，5个，或者更多呢？如果其他的步骤也有很多的依赖项，哦，依赖泛滥！出现这种情况，你会怎么做？
 
-首先，可能是你的 function 做了太多的事情。是否能把它重构成更小的 function ？如果不能，则可以将这么多的依赖项封装到一个 struct 中，然后将这个 struct 作为参数传递。
+首先，可能是你的 function 做了太多的事情。能否把它重构成更小的 function ？如果不能，则可以将这么多的依赖项封装到一个 struct 中，然后将这个 struct 作为参数传递。
 
 一种常见的情况是，child function 的依赖项特别复杂。例如，checkAddressExists 需要调用一个 web service ，这个 web service 有两个参数 URI 和 credentials ：
 ```

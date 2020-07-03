@@ -27,7 +27,7 @@ let validateOrder : ValidateOrder =
      // ^dependency            ^dependency        ^input
         ...
 ```
-这样做的好处是，所有参数和返回值的类型都是由所定义的 function type 决定的，所以在写实现代码的时候，如果使用了错误的签名，你会立即得到错误的提示，而不用等到稍后组合这些 function 时，才发现使用了错误的签名。
+这样做的好处是，所有参数和返回值的类型都是由所定义的 function type 决定的，所以在写实现代码的时候，如果使用了错误的 signature ，你会立即得到错误的提示，而不用等到稍后组合这些 function 时，才发现使用了错误的 signature 。
 
 这里就有一个示例，其中我们偶然地将一个 int 传递给 checkProductCodeExists function :
 ```

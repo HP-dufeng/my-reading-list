@@ -223,7 +223,7 @@ let convertToPassthru checkProductCodeExists productCode =
         failwith "Invalid Product Code"
 ```
 
-有趣的是，编译器认为这个实现是 generic 的——它不涉及特定的 type，如果查看 function 的签名，你会看到没有出现特定的 ProductCode type ：
+有趣的是，编译器认为这个实现是 generic 的——它不涉及特定的 type，如果查看 function 的 signature，你会看到没有出现特定的 ProductCode type ：
 ```
 val convertToPassthru :
         checkProductCodeExists:('a -> bool) -> productCode:'a -> 'a
@@ -250,7 +250,7 @@ let predicateToPassthru errorMsg f x =
 ```
 注意，在参数顺序中，将 errorMsg 放在首位，这样可以使用 partial application 这种技术手段，将它 bake in (传入) function 的内部中去。
 
-function 签名 ：
+function signature ：
 ```
 val predicateToPassthru : errorMsg:string -> f:('a -> bool) -> x:'a -> 'a
 ```

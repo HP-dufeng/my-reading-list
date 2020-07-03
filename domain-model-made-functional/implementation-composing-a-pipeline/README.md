@@ -31,7 +31,7 @@ let placeOrder unvalidatedOrder =
 
 function 不能组合的原因有两个：
 * function 拥有额外的参数，这些参数不是 pipeline 的一部分，但却是实现所必需的——我们称之为 “dependencies” 。
-* 在 function 签名中使用类似 Result 这样的 wrapper type，显式地指出了 function 具有的一些 “effect”，比如错误处理。但是像这样的对输出做了 wrapper 的 function 是不能直接连接到 仅将 unwrapped plain data 作为输入的 function 的。
+* 在 function signature 中使用类似 Result 这样的 wrapper type，显式地指出了 function 具有的一些 “effect”，比如错误处理。但是像这样的对输出做了 wrapper 的 function 是不能直接连接到 仅将 unwrapped plain data 作为输入的 function 的。
 
 在这一章，我们将处理第一个问题，处理作为依赖项的输入，并且我们将看到如何使用 functional 的方式实现 “dependency injection” 。下一章再讨论如何处理具有 effect 参数的 function 。
 

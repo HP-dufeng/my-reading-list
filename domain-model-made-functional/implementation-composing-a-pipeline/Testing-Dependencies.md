@@ -56,7 +56,7 @@ let ``If product doesn't exist, validation fails``() =
 
 当然，在本章中，我们已经说过，service 的错误将通过抛出 exception 来表示。 exception 不是个好东西，所以最好避免抛出 exception 。在下一章中，我们将修复这个问题。
 
-通过这个很小的例子，可以看到使用 functional programming 原则，对于编写 test 的好处:
+通过这个很小的例子，可以看到使用 functional programming 原则，对于编写 test 来说有很多的好处:
 * validateOrder function 是 stateless 的。它不改变任何东西，如果你用相同的输入调用它，你会得到相同的输出。
 * 所有依赖项都被显式地传递，所以很容易理解 function 的内在逻辑。
 * 所有 side-effect 都封装在参数中，而不是直接封装于 function 本身。同样，这使得 function 易于测试，也易于控制 side-effect 。
