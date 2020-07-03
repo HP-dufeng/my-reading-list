@@ -10,4 +10,6 @@
   * [8. Understanding Functions](./understanding-functions/README.md) 
 
   * [9. Implementation: Composing a Pipeline](./implementation-composing-a-pipeline/README.md) 
+
+  * [10. Implementation: Working with Errors](./implementation-working-with-errors/README.md) 
   
