@@ -75,7 +75,7 @@ let evalWith5ThenAdd2 fn = fn(5) + 2
 
 // evalWith5ThenAdd2 : fn:(int -> int) -> int
 ```
-看看注释的类型签名，可以看到编译器推断 fn 一定是一个类型为 (int -> int) 的 function 。  
+看看注释的 type signature ，可以看到编译器推断 fn 一定是一个类型为 (int -> int) 的 function 。  
 测试一下，首先定义一个 function： add1，类型为：(int -> int)，然后将 add1 作为参数传入。
 ```
 let add1 x = x + 1     // an int -> int function
@@ -114,7 +114,7 @@ let adderGenerator numberToAdd =
 
 // val adderGenerator : int -> (int -> int)
 ```
-类型签名清楚地向我们展示了它接受一个int作为输入，并发出一个类型为 (int -> int) 的 function 作为输出。
+type signature 清楚地向我们展示了它接受一个int作为输入，并发出一个类型为 (int -> int) 的 function 作为输出。
 
 我们还可以通过返回一个 named function 而不是 anonymous function 来实现adderGenerator，就像这样：
 ```
@@ -153,7 +153,7 @@ let adderGenerator x = fun y -> x + y
 ```
 
 F# 中，不需要显示的这样做——每个 function 都是 curried function ！  
-也就是说，任何签名为 'a ->'b ->'c 拥有两个参数的 function，也可以被解释为一个单参数 function ——它接受一个 'a 并返回一个函数 ('b -> 'c) 。
+也就是说，任何 signature 为 'a ->'b ->'c 拥有两个参数的 function，也可以被解释为一个单参数 function ——它接受一个 'a 并返回一个函数 ('b -> 'c) 。
 
 ### Partial Application
 

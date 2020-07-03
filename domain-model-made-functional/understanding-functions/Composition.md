@@ -31,7 +31,7 @@ add1ThenSquare 5          // result is 36
 add1ThenSquare 有一个参数 x ，x 被输入到第一个 function (add) 中，以启动通过 pipeline 的数据流。  
 ![image](./../images/add1ThenSquare.png)  
 
-再看一个例子，第一个 function 的签名是 int -> bool ，第二个的签名是 bool -> string ，然后将二者组合的结果是 int -> string ：
+再看一个例子，第一个 function 的 signature 是 int -> bool ，第二个的 signature 是 bool -> string ，然后将二者组合的结果是 int -> string ：
 ```
 let isEven x = 
     (x % 2) = 0                 // an int -> bool function
