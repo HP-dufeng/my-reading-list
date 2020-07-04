@@ -2,7 +2,7 @@
 
 在处理具体问题之前，我们应该先后退一步，从更抽象的角度来看一下问题。如果有那么一些 result-generating function ，如何以一种简洁的方式组合它们？
 
-接下来以一种直观的方式来看一下问题。一个正常的 function 好比一块铁轨：
+接下来以一种直观的方式来看一下问题。一个正常的 function 好比一块铁轨：  
 ![image](./../images/function-as-railroad.png)    
 
 输出 Result 的 function 可以表示为一分为二的铁路轨道：  
@@ -39,9 +39,9 @@
 ### Implementing the Adapter Blocks
 
 在第9章 Creating Function Adapters 这一节中讨论过 adapter function 。adapter 将 switch function 转换成 two-track function ，这是 functional programming 工具箱里比较重要的一个——在 FP 术语中通常把它叫做 bind 或 flatMap 。实现很简单，逻辑如下：
-* 输入是一个 switch function 。输入是一个新的 two-track function ，这个 two-track function 被表示成一个拥有 two-track 输入 和 two-track 输出 的 lambda 。
-* 如果 two-track 输入是成功的，则将此输入传递到 switch function 。而原本 switch function 的输出就是一个 two-track ，所以不需要对它做任何进一步的操作。
-* 如果 two-track 输入是失败的，则跳过 switch function ，并返回失败。
+* 输入是一个 switch function 。输出是一个新的 two-track function ，这个 two-track function 被表示成一个拥有 two-track 类型的输入 和 two-track 类型的输出 的 lambda 。
+* 如果输入的 two-track 是成功的，则将此输入传递到 switch function 。而原本 switch function 的输出就是一个 two-track ，所以不需要对它做任何进一步的操作。
+* 如果输入的 two-track 是失败的，则跳过 switch function ，并返回失败。
 
 实现的代码如下：
 ```
@@ -66,7 +66,7 @@ let bind switchFn twoTrackInput =
 
 在 FP 术语中通常称为 map 。逻辑是这样的：
 * 输入是一个 one-track function 和一个 two-track ( Result type ) 类型的值。
-* 如果输入的 Result 是成功的，则输入传递到 one-track function ，并将输入用 Ok 包装一下 (因为输出必须是 two-track 类型的)。
+* 如果输入的 Result 是成功的，则将此输入传递到 one-track function ，并将输入用 Ok 包装一下 (因为输出必须是 two-track 类型的)。
 * 如果输入的 Result 是失败的，则跳过 one-track function 。
 
 实现代码，如下：
