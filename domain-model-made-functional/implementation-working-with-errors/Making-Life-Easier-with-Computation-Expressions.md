@@ -296,5 +296,5 @@ let placeOrder : PlaceOrder =       // definition of function
 ```
 输入的是我们期望的 Result<ValidatedOrder,PlaceOrderError> 。
 
-**********
+---
 > 1.    https://fsharpforfunandprofit.com/posts/elevated-world-4/
