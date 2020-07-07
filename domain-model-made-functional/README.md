@@ -16,4 +16,6 @@
   * [9. Implementation: Composing a Pipeline](./implementation-composing-a-pipeline/README.md) 
 
   * [10. Implementation: Working with Errors](./implementation-working-with-errors/README.md) 
+
+  * [11. Serialization](./serialization/README.md) 
   
