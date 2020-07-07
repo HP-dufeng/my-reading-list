@@ -1,6 +1,6 @@
 ## Adding the Async Effect
 
-在最初的设计中，我们不仅仅使用了 error effect ( Result ) 。多数的 pipeline 都使用了 async effect 。组合 effect 通常会有点棘手，但是由于这两种 effect 经常同时出现，所以我们将定义一个asyncResult computation expression 来配合前面定义的 asyncResult 类型。这里不会展示实现，像往常一样，你可以在本书的 code repository 中看到它。
+在最初的设计中，我们不仅仅使用了 error effect ( Result ) 。多数的 pipeline 也都会使用 async effect 。组合 effect 通常会有点棘手，但是由于这两种 effect 经常同时出现，所以我们将定义一个 asyncResult computation expression 来配合前面定义的 asyncResult 类型。这里不会展示 asyncResult computation expression 实现，像往常一样，你可以在本书的 code repository 中看到它。
 
 使用 asyncResult 就像使用 Result 一样。比如， validateOrder 的实现如下：
 ```

@@ -1,12 +1,12 @@
 ## Making Life Easier with Computation Expressions
 
-到目前为止，处理的都是简单的 error handling 的逻辑。能够使用 bind 串联 Result-generating function ，能够使用 “adapter” function 改造那些不是 two-track 的 function 使其匹配 two-track 模型。
+到目前为止，处理的都是简单的 error handling 的逻辑。使用 bind 串联 Result-generating function ，使用 “adapter” function 改造那些不是 two-track 的 function 使其匹配 two-track 模型。
 
-不过，有时候 workflow 的逻辑很复杂。可能要编写这样的代码： conditional branches ，loops ，深度嵌套的 Result-generating function 。类似这样的代码，F# 使用 “computation expressions” 这样的形式，来隐藏 bind 时的复杂性。computation expressions 只是一种特殊的表达式块。
+不过，有时候 workflow 的逻辑很复杂。可能需要编写这样的代码： conditional branches ，loops ，深度嵌套的 Result-generating function 。类似这样的代码，F# 使用 “computation expressions” 这样的形式，来隐藏 bind 时的复杂性。computation expressions 只是一种特殊的表达式块。
 
-创建 computation expressions 很简单。比如要为 Result 创建一个叫 result (小写) 的，只需要两个 function 就行了：
-* bind ，前面已经见识过了，将它与 Result 一起使用。
-* return ，它的作用仅仅只是构造一个值。就 Result 来说，这个 return function 就是 Ok contructor 。
+创建 computation expressions 很简单。比如要为 Result 创建一个命名为 result (小写) 的，只需要两个 function 就行了：
+* bind ，前面已经见识过如何将它与 Result 一起使用。
+* return ，它的作用仅仅只是构造一个值。就 Result 来说，这个 return 就是 Ok function 。
 
 这里不会呈现 result computation expression 的实现细节——可以到 code repository 查看 Result.fs 文件。相反，让我们看看如何在实践中使用 computation expression 来简化具有大量 Result 的代码。
 
