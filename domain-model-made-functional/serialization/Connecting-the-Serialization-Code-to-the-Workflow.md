@@ -45,5 +45,5 @@ let workflowWithSerialization jsonString =
 
 ### DTOs as a Contract Between Bounded Contexts
 
-我们会处理由别的 bounded contexts 所触发的 command ，我门的 workflow 发出的 event 会成为 别的 bounded context 的输入。这些 event 和 command 便成了 bounded context 必须实现的契约。当然这是一个宽松的契约，因为我们要避免 bounded context 之间的紧耦合。尽管如此，对于这些 event 和 command 的序列化格式 (dto) ，也应该小心的更改。这意味着你应该始终完全控制序列化格式，而不应该把这交由 library 自动完成！
+我们会处理由别的 bounded contexts 所触发的 command ，我门的 workflow 发出的 event 会成为 别的 bounded context 的输入。这些 event 和 command 便成了 bounded context 必须实现的契约。当然这是一个宽松的契约，因为我们要避免 bounded context 之间的紧耦合。尽管如此，对于这些 event 和 command 的序列化格式 (dto) ，也应该小心的更改。这意味着你应该始终完全控制序列化格式，而不应该把这交由某个第三方的 library 自动完成！
 

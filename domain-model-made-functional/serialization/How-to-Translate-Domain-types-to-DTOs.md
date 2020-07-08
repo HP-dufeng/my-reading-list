@@ -18,7 +18,7 @@ type ProductCode = ProductCode of string
 
 ### Records
 
-定义为 record 的 doamin type 可以在 DTO 中保持为一个 record type ，只要将每个 field 的 type 转换为等效的 DTO 即可。
+定义为 record 的 doamin type 可以在 DTO 中任就保持为一个 record type ，只要将每个 field 的 type 转换为等效的 DTO 即可。
 
 这里有一例子用来演示 single-case unions ，optional values ， record type ：
 ```
@@ -59,7 +59,7 @@ type OrderDto = {
 ```
 对于 map 和其它复杂的 collection ，转换的方式依赖于序列化的格式。当使用 JSON 格式时，可以直接将 map 转换为 JSON object ，因为 JSON 只是 key-value collection 。
 
-对于其它的格式，也许你需要创建一个特殊的表现形式。比如，一个 map 可能在 DTO 中被表示成一个 record array ，其中每个 record 是一个 key-value pair ：
+对于其它的序列化格式，也许你需要创建一个特殊的表现形式。比如，一个 map 可能会在 DTO 中被表示成一个 record array ，其中每个 record 是一个 key-value pair ：
 ```
 /// Domain type
 type PriceLookup = Map<ProductCode,Price>
@@ -84,7 +84,7 @@ type PriceLookupDto = {
 
 ### Unions Used as Enumerations
 
-多数情况下，Union 中每个 case 只是一个名称，没有额外的数据。这些可以被表示成 .NET enum ，序列化时通常被表示成整数。
+多数情况下，Union 中每个 case 只是一个名称，没有额外的数据。这种情况它们可以被表示成 .NET enum ，序列化时通常被表示成整数。
 ```
 /// Domain type
 type Color =
@@ -200,7 +200,7 @@ let fromDomain (domainObj:Example) :ExampleDto =
 * 在 function 开头为每个 field 设置 null 值，然后将它们分配给与匹配的 case 无关的字段。
 * 在 “B” case 中，不能直接将 null 赋予 Nullable<_> type 。必须使用 Nullable() function 代替。
 * 在 “C” case 中，null 可以赋给 Array ，因为它是个 .NET class 。
-* 在 “D” case 中，同样不能直接将 null 赋给 F# 的 record type ( 如，NameDto ) ，因此我们使用 “backdoor” function ( Unchecked.defaultOf<_> ) 为它创建一个 null 值。这中方式不能在一般的代码中使用，只有在为序列化创建 null 值是可以使用。
+* 在 “D” case 中，同样不能直接将 null 赋给 F# 的 record type ( 如，NameDto ) ，因此我们使用一个 “backdoor” function (这里是 Unchecked.defaultOf<_> ) 为它创建一个 null 值。这种方式不能在一般的代码中使用，只有在为序列化创建 null 值时可以使用。
 
 当用这样的 tag 反序列化 choice type 时，我们匹配 “tag” field ，然后分别处理每种 case 。
 尝试反序列化之前，必须总是对与 tag 相关联的数据做 null 值检查 ：
@@ -244,7 +244,7 @@ let toDomain dto : Result<Example,string> =
 在 “B” 和 “C” 的 case 中，从 primitive 转换到 domain 是没有 error 的 (在确保数据不是 null 之后) 。在 “D” case 中，从 NameDto 转换到 Name 时可能会失败，因此 nameDtoToDomain function 返回 Result ，然后必须使用 Result.map D (这里的 D 是一个 constructor function ) 对 Result 做 map 遍历。
 
 ### Serializing Records and Choice Types Using Maps
-对于复合类型 ( record 和 discriminated union )，另一种序列化方式是将所有内容序列化为 key-value map 。也就是，素有的 DTO 都将被实现为相同的方式——.NET type IDictionary<string,obj> 。这种方式特别适用于 JSON 格式，因为它与 JSON 对象模型非常一致。
+对于复合类型 ( record 和 discriminated union )，另一种序列化方式是将所有内容序列化为 key-value map 。也就是，所有的 DTO 都将被实现为相同的类型——.NET type IDictionary<string,obj> 。这种方式特别适用于 JSON 格式，因为它与 JSON 对象模型非常一致。
 
 这种方式的优点是 DTO 结构中没有隐含的 “契约” —— key-value map 可以包含任何内容——因此它有益于高度解耦的交互。缺点是根本就没有契约了！这意味着很难预期生产者和消费者之间是否匹配。有时候，一点点耦合是有用的。
 
@@ -260,7 +260,7 @@ let nameDtoFromDomain (name:Name) :IDictionary<string,obj> =
 ```
 以上我们创建了一个 key/value pairs 的 list ，并使用内建的 dict function 以这个 list 为基础构建了一个 IDictionary 。如果之后将这个 dictionary 序列化成 JSON ，结果看起来和序列化一个 NameDto type 的一样。
 
-值得注意的是， IDictionary 使用 obj 作为 value 。也就是说必须使用 upcast operator :> 将record 的所有值显示的转换成 obj 。
+值得注意的是， IDictionary 使用 obj 作为 value 。也就是说必须使用 upcast operator :> 将 record 的所有值显示的转换成 obj 。
 
 对于 choice type ，返回的 dictionary 将只有一条数据，但是 key 的 value 将取决于 choice 。比如，对 Example type 做序列化，key 将是 “A” ，“B” ，“C” ，“D” 其中的一个。
 ```
@@ -278,7 +278,7 @@ let fromDomain (domainObj:Example) :IDictionary<string,obj> =
         let ddata = name |> nameDtoFromDomain :> obj
         [ ("D",ddata) ] |> dict
 ```
-上面的代码显示了与 nameDtoFromDomain 类似的方式。对于每个 case ，将数据转换为序列化的格式，然后将其转换为 obj 。在 “D” case 中，数据的类型是 Name ，它的序列化格式仅仅只是另一个 IDictionary 。
+上面的代码显示了与 nameDtoFromDomain 类似的方式。对于每个 case ，将数据转换为序列化的格式，然后再将其转换为 obj 。在 “D” case 中，数据的类型是 Name ，它的序列化格式仅仅只是另一个 IDictionary 。
 
 反序列化有点小小的麻烦。对于每个 field ，我们需要 (a)——在 dictionary 中查找它是否存在，(b)——如果存在，检索它并尝试将其转换为正确的 type 。
 
@@ -342,9 +342,9 @@ let toDomain (dto:IDictionary<string,obj>) : Result<Example,string> =
 
 ### Generics
 
-多数情况下，doamin type 是 generic 的，如果 serialization library 支持 generic ，你就可以创建 generic 的 DTO 。
+多数情况下，doamin type 是 generic type ，如果 serialization library 支持 generic type ，你就可以创建 generic type 的 DTO 。
 
-例如，Result type 是 generic 的，所以可以被转换成 generic 的 ResultDto ：
+例如，Result type 是 generic type ，所以可以被转换成 generic type 的 ResultDto ：
 ```
 type ResultDto<'OkData,'ErrorData when 'OkData : null and 'ErrorData: null> = {
     IsError : bool // replaces "Tag" field
@@ -352,11 +352,11 @@ type ResultDto<'OkData,'ErrorData when 'OkData : null and 'ErrorData: null> = {
     ErrorData : 'ErrorData
 }
 ```
-注意，'OkData and 'ErrorData 这两个 generic 必须是 nullable 的，因为反序列化时它们有可能会有缺失的值。
+注意，'OkData and 'ErrorData 这两个 generic type 必须是 nullable 的，因为反序列化时它们有可能会有缺失的值。
 
-如果 serialization library 不支持 generic ，你就必须为每种 concrete type 创建一个的 type 。这可能很乏味，但是你会发现在实践中，很少有 generic type 需要被序列化。
+如果 serialization library 不支持 generic type ，你就必须为每种 concrete type 创建一个 type 。这可能很乏味，但是你会发现在实践中，很少有 generic type 需要被序列化。
 
-例如，以下时来自 order-placing workflow 中的 Result type ，使用 concrete type 将其转换成 DTO ，而不是使用 generic type 做转换。
+例如，以下是来自 order-placing workflow 中的 Result type ，使用 concrete type 将其转换成 DTO ，而不是使用 generic type 做转换。
 ```
 /// PlaceOrderEventDto and PlaceOrderErrorDto is concrete type
 type PlaceOrderResultDto = {

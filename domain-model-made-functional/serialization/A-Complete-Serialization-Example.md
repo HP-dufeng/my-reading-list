@@ -29,7 +29,7 @@ module Dto =
     }
 ```
 
-接下来，需要两个 function ，“toDomain” 和 “fromDomain” 。这些 function 和 DTO type 相关，和 domain type 无关，这是因为 domain 不应该关心 DTO 的实现细节。因此将它们放入到 Dto module 中的命名为 Person 的子 module 中 ：
+接下来，需要两个 function ，“toDomain” 和 “fromDomain” 。这些 function 和 DTO type 相关，和 domain type 无关，这是因为 domain 不应该关心 DTO 的实现细节。因此将它们放入到位于 Dto module 中的被命名为 Person 的子 module 中 ：
 ```
 module Dto =
     module Person =
@@ -52,7 +52,7 @@ let fromDomain (person:Domain.Person) :Dto.Person =
     {First = first; Last = last; Birthdate = birthdate}
 ```
 
-反之，toDomain function 将 DTO 转换成 domain type ，因为有各种的校验和约束可能会出错，所以 toDomain function 返回的是 Result<Person, string> ，而不是一个单纯的 Person 。
+反之，toDomain function 将 DTO 转换成 domain type ，因为有各种的校验和约束可能会失败，所以 toDomain function 返回的是 Result<Person, string> ，而不是一个单纯的 Person 。
 ```
 let toDomain (dto:Dto.Person) :Result<Domain.Person,string> =
     result {
@@ -69,7 +69,7 @@ let toDomain (dto:Dto.Person) :Result<Domain.Person,string> =
         }
     }
 ```
-这里使用了一个 result computation expression 来处理有可能会出现的 error ，因为 String50 和  Birthdate 从它们各自的 create function 中返回的是 Result 。
+这里使用了一个 result computation expression 来处理有可能会出现的 error ，这是因为 String50 和  Birthdate 从它们各自的 create function 中返回的是 Result 。
 
 例如，String50.create 的实现可能会使用到第6章 Integrity of Simple Values 这一节所讨论的方式。代码如下。注意，这里把 field name 作为输入参数，因此我们会获得更有用的 error 信息：
 ```
@@ -84,7 +84,7 @@ let create fieldName str : Result<String50,string> =
 
 ### Wrapping the JSON Serializer
 
-类似序列化 JSON 或 XML 这样的功能，我们将使用第三方的 library 。然而，library 里的 API 可能不是 functional 友好的。因此需要将这些 API 包装一下，以使其匹配 pipeline 中的其它 function 。这里是一个包装 Newtonsoft.json library 的例子：
+类似序列化 JSON 或 XML 这样的功能，我们将使用第三方的 library 。然而，library 里的 API 可能不是 functional 友好的。因此需要将这些 library 中的 API 包装一下，以使其匹配 pipeline 中的其它 function 。这里是一个包装 Newtonsoft.json library 的例子：
 ```
 module Json =
     open Newtonsoft.Json
@@ -150,7 +150,7 @@ let jsonToDomain jsonString :Result<Domain.Person,DtoError> =
         return domainValue
     }
 ```
-对其进行测试，没有 error 的情况：
+对其进行测试，这个是没有 error 的情况：
 ```
 // JSON string to test with
 let jsonPerson = """{
@@ -187,7 +187,7 @@ jsonToDomain jsonPersonWithErrors |> printfn "%A"
 ```
 可以看到结果是一个 ValidationError 。在真实的应用程序中，你可以将其记录到日志，并将 error 返回给调用者。为了返回所有的 error ，可以参考 第10章 Composing in Parallel With Applicatives 这一节的内容。
 
-反序列化过程中处理 exception 的另一种方式是 什么也不做，就只是让 反序列化 的代码抛出 exception 。选择哪种方式取决于你是 希望将反序列化错误作为预期情况处理，还是作为 “panic” ( 崩溃整个 pipeline ) 来处理 。反过来，这又取决于你的 API 的公开程度，你对调用者的信任度，以及你希望向调用者提供多少关于这类错误的信息。
+反序列化过程中处理 exception 的另一种方式是 什么也不做，就只是让 反序列化 的代码抛出 exception 。选择哪种方式取决于你是 希望将反序列化错误作为可预期的情况处理，还是作为 “panic” ( 崩溃整个 pipeline ) 来处理 。反过来，这又取决于你的 API 的公开程度，你对调用者的信任度，以及你希望向调用者提供多少关于这类错误的信息。
 
 ### Working with Other Serializers
 
@@ -206,8 +206,8 @@ module Dto =
         Birthdate : DateTime
     }
 ```
-这显示了让 serialization type 与 domain type 分离的另一个好处—— domain type 不会被这样的复杂的 attribute 所污染。一如既往，最好将 domain 的 与基础设施分离开来。
+这显示了让 serialization type 与 domain type 分离的另一个好处—— domain type 不会被这样的复杂的 attribute 所污染。一如既往，最好将 domain 与基础设施分离开来。
 
 关于序列化器的另一个很有用的 attribute 是 CLIMutableAttribute ，它会产生一个 ( 隐藏的 ) 无参数构造函数，通常使用反射的序列化器需要它。
 
-如果，你确定只会和其它的 F# 组件工作，那么你可以使用针对 F# 专门的序列化器 ( FsPickler 或 Chiron ) 。如果你使用这些专门的序列化器，所有的 bounded context 都必须使用相同的编程语言，而这就导致了 bounded context 之间的耦合。
+如果，你确定只会和其它的 F# 组件工作，那么你可以使用针对 F# 专门的序列化器 ( FsPickler 或 Chiron ) 。如果你使用这些专门的序列化器，所有的 bounded context 都必须使用相同的编程语言，而这也将导致 bounded context 之间耦合。
