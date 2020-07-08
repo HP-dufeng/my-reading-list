@@ -1,0 +1,6 @@
+[book]
+authors = ["fengdu"]
+language = "cn"
+multilingual = false
+src = "src"
+title = "Domain Modeling Made Functional"

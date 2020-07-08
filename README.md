@@ -16,7 +16,7 @@
 - 反应式设计模式
 
 #### 文章，笔记
-* [Domain Modeling Made Functional](./domain-modeling-made-functional/README.md)    我对这本书的翻译和笔记
+* [Domain Modeling Made Functional](./domain-modeling-made-functional/src/Summary.md)    我对这本书的翻译和笔记
 
 
 
