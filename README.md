@@ -15,8 +15,22 @@
 - 响应式架构：消息模式Actor实现与Scala，Akka应用集成
 - 反应式设计模式
 
+
+#### 写作平台
+
+这两天 ( 七月8号 ) 弄了自己的写作平台，因为闲的无聊 给自己找点儿有趣的事做。
+
+预计功能如下：
+* 翻译 ，翻译一些我觉得有趣的原版书，比如，这本 Domain Modeling Made Functional 。
+* 视频 ，录一些代码视频。
+* blog ，写一些自己的东西。
+
+
+
+地址：[fengdu.cloud](http://47.97.159.117/) ，域名正在备案，所以暂时使用 ip 访问。
+
 #### 文章，笔记
-* [Domain Modeling Made Functional](./domain-modeling-made-functional/src/SUMMARY.md)    我对这本书的翻译和笔记
+* [Domain Modeling Made Functional](./domain-modeling-made-functional/src/SUMMARY.md)   业余闲的无聊时我对这本书做了翻译，持续更新中，阅读在线版本请到 我的写作平台：[fengdu.cloud](http://47.97.159.117/books/dmmf/index.html)
 
 
 
