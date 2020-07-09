@@ -20,6 +20,12 @@
 
 这两天 ( 七月8号 ) 弄了个自己的写作平台，因为闲的无聊，给自己找点儿有趣的事做。
 
+为什么不使用 csdn, cnblog ,等等 ? 它们都是心灵鸡汤，我不需要。  
+那么 infoq 呢？ infoq 不久之前也开放了写作平台，我也不要使用它，因为我发现它也有向心灵鸡汤发展的趋势。
+还有 知乎，简书 。。。这么的多的平台 ，我也不想用。  
+
+我需要一个简洁干净的地方。
+
 预计功能包含以下这些：
 * 翻译 ，翻译一些我觉得有趣的原版书，比如，这本 [Domain Modeling Made Functional](http://47.97.159.117/books/dmmf/index.html) 。
 * 视频 ，录一些代码视频。
@@ -28,6 +34,8 @@
 
 
 地址：[fengdu.cloud](http://47.97.159.117/) ，域名正在备案，所以暂时使用 ip 访问。
+
+
 
 #### 文章，笔记
 * [Domain Modeling Made Functional](./domain-modeling-made-functional/src/SUMMARY.md)   业余闲的无聊时我对这本书做了翻译，持续更新中，阅读在线版本请到 我的写作平台：[fengdu.cloud](http://47.97.159.117/books/dmmf/index.html)
