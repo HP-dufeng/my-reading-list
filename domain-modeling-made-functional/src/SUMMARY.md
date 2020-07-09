@@ -75,7 +75,14 @@
 
 
 
-- [Persistence]()
+- [Persistence](./persistence/README.md)
+    - [Pushing Persistence to the Edges](./persistence/Pushing-Persistence-to-the-Edges.md)
+    - [Command-Query Separation](./persistence/Command-Query-Separation.md)
+    - [Bounded Contexts Must Own Their Data Storage](./persistence/Bounded-Contexts-Must-Own-Their-Data-Storage.md)
+    - [Working with Document Databases](./persistence/Working-with-Document-Databases.md)
+    - [Working with Relational Databases](./persistence/Working-with-Relational-Databases.md)
+    - [Transactions](./persistence/Transactions.md)
+    - [Wrapping Up](./persistence/Wrapping-Up.md)
 
 
 - [Evolving a Design and Keeping It Clean]()

@@ -1,0 +1,1 @@
+## Bounded Contexts Must Own Their Data Storage
