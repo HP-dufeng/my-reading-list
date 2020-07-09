@@ -3,13 +3,13 @@
 
 
 
-[Cover](./Cover.md)
-[Preface](./preface/README.md)
-[Who Is This Book For?](./preface/Who-Is-This-Book-For.md)
-[What’s In This Book?](./preface/Whats-In-This-Book.md)
-[Other Approaches To Domain Modeling](./preface/Other-Approaches-To-Domain-Modeling.md)
-[Working With the Code In This Book](./preface/Working-With-the-Code-In-This-Book.md)
-[Acknowledgements](./preface/Acknowledgements.md)
+[Cover](./Cover.md)  
+[Preface](./preface/README.md)  
+[Who Is This Book For?](./preface/Who-Is-This-Book-For.md)  
+[What’s In This Book?](./preface/Whats-In-This-Book.md)  
+[Other Approaches To Domain Modeling](./preface/Other-Approaches-To-Domain-Modeling.md)  
+[Working With the Code In This Book](./preface/Working-With-the-Code-In-This-Book.md)  
+[Acknowledgements](./preface/Acknowledgements.md)  
 
 # Part 1 - Understanding the Domain
 
