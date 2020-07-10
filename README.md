@@ -18,7 +18,7 @@
 
 #### 写作平台
 
-地址：[fengdu.cloud](http://47.97.159.117/) ，域名正在备案，所以暂时使用 ip 访问。
+地址：[fengdu.cloud](https://fengdu.cloud/) 。
 
 这两天 ( 七月8号 ) 弄了个自己的写作平台，因为闲的无聊，给自己找点儿有趣的事做。
 
@@ -29,14 +29,14 @@
 我需要一个简洁干净的地方。
 
 预计功能包含以下这些：
-* 翻译 ，翻译一些我觉得有趣的原版书，比如，这本 [Domain Modeling Made Functional](http://47.97.159.117/books/dmmf/index.html) 。
+* 翻译 ，翻译一些我觉得有趣的原版书，比如，这本 [Domain Modeling Made Functional](https://fengdu.cloud/books/dmmf/index.html) 。
 * 视频 ，录一些代码视频。
 * blog ，写一些自己的东西。
 
 
 
 #### 文章，笔记
-* [Domain Modeling Made Functional](./domain-modeling-made-functional/src/SUMMARY.md)   业余闲的无聊时我对这本书做了翻译，持续更新中，阅读在线版本请到 我的写作平台：[fengdu.cloud](http://47.97.159.117/books/dmmf/index.html)
+* [Domain Modeling Made Functional](./domain-modeling-made-functional/src/SUMMARY.md)   业余闲的无聊时我对这本书做了翻译，持续更新中，阅读在线版本请到 我的写作平台：[fengdu.cloud](https://fengdu.cloud/books/dmmf/index.html)
 
 
 
