@@ -85,4 +85,13 @@
     - [Wrapping Up](./persistence/Wrapping-Up.md)
 
 
-- [Evolving a Design and Keeping It Clean]()
+- [Evolving a Design and Keeping It Clean](./evolving-a-design-and-keeping-it-clean/README.md)
+    - [Change 1: Adding Shipping Charges](./evolving-a-design-and-keeping-it-clean/Change-1-Adding-Shipping-Charges.md)
+    - [Change 2: Adding Support for VIP Customers](./evolving-a-design-and-keeping-it-clean/Change-2-Adding-Support-for-VIP-Customers.md)
+    - [Change 3: Adding Support for Promotion Codes](./evolving-a-design-and-keeping-it-clean/Change-3-Adding-Support-for-Promotion-Codes.md)
+    - [Change 4: Adding a Business Hours Constraint](./evolving-a-design-and-keeping-it-clean/Change-4-Adding-a-Business-Hours-Constraint.md)
+    - [Dealing with Additional Requirements Changes](./evolving-a-design-and-keeping-it-clean/Dealing-with-Additional-Requirements-Changes.md)
+    - [Wrapping Up](./evolving-a-design-and-keeping-it-clean/Wrapping-Up.md)
+    - [Wrapping Up the Book](./evolving-a-design-and-keeping-it-clean/Wrapping-Up-the-Book.md)
+
+
