@@ -58,7 +58,7 @@ and PhoneNumber = PhoneNumber of string
 and ContactId = ContactId of int
 ```
 
-第一种方式 (“所有的 case 保存在相同的 table 中”) 和之前讨论过的类似 (参见第11章 Choice types 这一节)。使用一个 table 来存储所有的 case ，这又意味着， (a) 需要一个或多个的 flag 表示那个 case 被使用了，(b) 使用 NULLable column 保存 值是 Some 的那些 case 。
+第一种方式 (“所有的 case 保存在相同的 table 中”) 和之前讨论过的类似 (参见第11章 [Choice types]() 这一节)。使用一个 table 来存储所有的 case ，这又意味着， (a) 需要用一个或多个的 flag 来表示那个 case 被使用了，(b) 使用 NULLable column 存储 与 case 关联的数据。
 ```sql
 CREATE TABLE ContactInfo (
     -- shared data

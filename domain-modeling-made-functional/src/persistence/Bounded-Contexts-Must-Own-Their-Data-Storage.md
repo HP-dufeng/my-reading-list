@@ -10,7 +10,7 @@ persistence 的另一个关键原则是，每个 bounded context 在数据存储
 
 ### Working with Data from Multiple Domains
 
-那么报表和业务分析系统呢？ 它们需要从多个 bounded context 问数据，但我们刚刚说过，这不是一个好主意。
+那么报表和业务分析系统呢？ 它们需要从多个 bounded context 读取数据，但我们刚刚说过，这不是一个好主意。
 
 解决方案是将 “Reporting” 或 “Business Intelligence” 视为单独的 domain ，并将其它 bounded context 的数据复制到为报表而设计的单独系统中。这种方式虽然需要更多的工作，但是 源系统 和 报表系统 可以独立地演进，并且每个系统可以针对自己的关注点进行优化。当然，这种方式并不是全新的—— OLTP<sup>2</sup> 和 OLAP<sup>3</sup> 系统之间的区别已经存在了几十年。
 

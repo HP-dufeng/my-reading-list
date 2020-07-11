@@ -1,6 +1,6 @@
 ## Pushing Persistence to the Edges
 
-正如在第三章 [Keep I/O at the Edges]() 这一节中提到的，我们希望尽可能的使用 pure function ，因为这样的 pure function 更容易理解和测试。读取或写入外部数据的 function 不可能是 pure function ，因此，在设计 workflow 时，要避免在 workflow 内部 出现任何类型的 I/O 或与 persistence 相关的逻辑。也就是说，workflow 通常分为两部分：
+正如在第三章 [Keep I/O at the Edges]() 这一节中提到的，我们希望尽可能的使用 pure function ，因为这样的 pure function 更容易理解和测试。读取或写入外部数据的 function 不可能是 pure function ，因此，在设计 workflow 时，要避免在 workflow 内部 出现任何与 I/O 或 persistence 相关的逻辑。也就是说，workflow 通常分为两部分：
 * domain-centric ，以 domain 为中心的部分，这部分包含业务逻辑。
 * edge ，边界部分，这部分包含 I/O 相关的代码。
 
@@ -28,7 +28,7 @@ let payInvoice invoiceId payment =
         markAsPartiallyPaidInDb(invoiceId)
 
 ```
-问题是上面的这个 function ，不是 pure function ，因此很难它进行测试。
+问题是上面的这个 function ，不是 pure function ，因此很难对它进行测试。
 
 我们新建一个 applyPayment function ，将纯业务逻辑分离出来放入到这个 function 中 ，applyPayment 不操作 database ，而是返回一个 InvoicePaymentResult ，这个 Result 描述了下一步该如何做：
 ```rust
@@ -79,7 +79,7 @@ let payInvoice payInvoiceCommand =
         updateInvoiceInDb updatedInvoice    // I/O
 
 ```
-注意以上这个 payInvoice function ，它自己不做任何的判断逻辑，它只是 处理 由 以 domain 为中心的那些 function 所做出的判断结果。因此，这个 function 真的不必做 unit test ，因为通常 persistence 的逻辑不是那么的重要。当然，这并不意味着不应该对其进行测试，但最好将其作为 end-to-end integration test 的一部分进行测试。
+注意以上这个 payInvoice function ，它自己不做任何的判断逻辑，判断逻辑是由 以 domain 为中心的那些 function 所做出的，payInvoice 只是处理这些判断的结果——即根据判断的结果执行相应的操作 ( match 语句 ) 。因此，这个 function 真的不必做 unit test ，因为通常 persistence 的逻辑不是那么的重要。当然，这并不意味着不应该对其进行测试，但最好将其作为 end-to-end integration test 的一部分进行测试。
 
 可以把类似这样的 composite function ( 复合函数 ) 想象成一个三明治—— I/O 在边缘，pure code 在中心：  
 ![images](./../images/function-as-sandwich.png)  
@@ -124,11 +124,11 @@ let payInvoice
 解决方案是保持 pure function 不变，但是将它们夹在 不纯的 I/O function 之间，就像这样。  
 ![image](./../images/pure-code-io-function.png)    
 
-包含业务逻辑的 pure function 作出决策， I/O function 读写数据。
+包含业务逻辑的 pure function 作出判断， I/O function 根据判断的结果读写数据。
 
 例如，假如需要扩展 workflow ： 付款后，计算欠款总额，如果金额过大，则向客户发出警告信息。
 
-有了额外的需求，pipeline 中的步骤将如下所示：
+有了这个额外的需求，pipeline 中的步骤将如下所示：
 ```rust
 --- I/O---
 Load invoice from DB

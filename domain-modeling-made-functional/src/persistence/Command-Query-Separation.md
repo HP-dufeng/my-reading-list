@@ -27,7 +27,7 @@ type DeleteData = DataStoreState -> Key -> NewDataStoreState
 * insert ，update ，delete 会改变 database 的状态。
 * read ( query ) 不改变 database 的状态，而且它是四个 function 中唯一的一个，会返回有用的结果的 function 。
 
-Command-Query separation 是根据这种区别而构建的设计原则，它指出，返回数据的代码 (“query”) 不应该与更新数据的代码 (“comand”) 混淆。或者简单点： asking a question should not change the answer 。
+Command-Query separation 是根据这种不同点而构建的设计原则，它指出，返回数据的代码 (“query”) 不应该与更新数据的代码 (“comand”) 混淆。或者简单点： asking a question should not change the answer 。
 
 将这些应用于 functional programming 时， CQS 原则建议：
 * 返回数据的 funciton 不应该带有 side-effect 。
@@ -36,8 +36,8 @@ Command-Query separation 是根据这种区别而构建的设计原则，它指�
 没什么新鲜的——在整个设计过程中，我们一直在这样做——但现在让我们将此专门应用到 database 中。
 
 让我们稍微研究一下这些 function signature 。
-* 在输入端，可以用某种 data store 的 handle ( 比如，DbConnection ) 替换 DataStoreState 。
-* 输出 ( NewDataStoreState )与实际的 data store 无关，因为 data store 是 mutable 的，不返回新的状态。因此将输出替换为 Unit type 。
+* 在输入端，可以使用某种 data store 的 handle ( 比如，DbConnection ) 替换 DataStoreState 。
+* 输出 ( NewDataStoreState ) 与实际的 data store 无关，因为 data store 是 mutable 的，不返回新的状态。因此将输出替换为 Unit type 。
 
 现在，signature 应该变成这样：
 ```rust
