@@ -19,8 +19,7 @@
 
 #### 文章，笔记
 * [Domain Modeling Made Functional](./domain-modeling-made-functional/src/SUMMARY.md)   业余闲的无聊时我对这本书做了翻译，持续更新中，阅读在线版本请到 我的写作平台：[fengdu.cloud](https://fengdu.cloud/books/dmmf/index.html)
-
-
+* [Domain-Driven Design](https://fengdu.cloud/books/ddd/index.html)   持续更新中
 
 
 
