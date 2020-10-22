@@ -18,7 +18,7 @@
 
 
 #### 文章，笔记
-> [fengdu.cloud](https://fengdu.cloud/books/dmmf/index.html)
+> [fengdu.cloud](https://fengdu.cloud/)
 * [Domain Modeling Made Functional](https://fengdu.cloud/books/dmmf/index.html)   业余闲的无聊时我对这本书做了翻译，持续更新中，阅读在线版本请到 
 * [Domain-Driven Design](https://fengdu.cloud/books/ddd/index.html)   持续更新中
 
