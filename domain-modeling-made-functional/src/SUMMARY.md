@@ -11,7 +11,7 @@
 [Working With the Code In This Book](./preface/Working-With-the-Code-In-This-Book.md)  
 [Acknowledgements](./preface/Acknowledgements.md)  
 
-# Part 1 - Understanding the Domain
+<!-- # Part 1 - Understanding the Domain
 
 - [Introducing Domain-Driven Design]()
 
@@ -28,7 +28,7 @@
 
 - [Integrity and Consistency in the Domain]()
 
-- [Modeling Workflows as Pipelines]()
+- [Modeling Workflows as Pipelines]() -->
 
 
 # Part 3 - Implementing the Model
