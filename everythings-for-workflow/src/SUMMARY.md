@@ -15,5 +15,6 @@
     - [Introducing the flowable framework](./flowable-in-action/introducing-the-flowable-framework.md)
 
 - [Flowable](./flowable/README.md) 
+    - [阅读源码起步](./flowable/How-to-reading-source-code.md) 
     - [设置 initiator 变量的值](./flowable/How-and-when-to-set-initiator-variable.md) 
     - [execution](./flowable/execution.md)
